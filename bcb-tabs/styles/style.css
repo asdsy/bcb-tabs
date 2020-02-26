@@ -18,23 +18,34 @@ body {
     font-style: normal;
 }
 
-button {
+.tabs-button {
     font-family: din-condensed,sans-serif;
-    font-weight: 400;
     font-style: normal;
     background: none;
     font-size: 18pt;
     color: black;
     padding-left: 14px;
     padding-right: 14px;
-    padding-bottom: 42px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    outline: none;
     border: none;
     text-transform: uppercase;
-    transition: .3s;
 }
 
-button:hover {
+.tabs-button:hover {
     color: gray;
+}
+
+.tabs-button:active {
+    background: white;
+    border:none;
+}
+
+.tabs-button--active {
+    font-weight: bold;
+    animation: animSelect .3s;
+    border-bottom: 3px solid black;
 }
 
 .tabs {
@@ -58,13 +69,17 @@ button:hover {
 }
 
 .tabs-content {
-    display: flexbox;
+    display: none;
     margin-left: auto;
     margin-right: auto;
     background-color: gainsboro;
     padding-left: 24px;
     padding-right: 24px;
     animation: fadeIn 1.5s;
+}
+
+.tabs-content--active {
+    display: block;
 }
 
 .tabs-sidebar {
@@ -76,5 +91,10 @@ button:hover {
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
+ }
+
+ @keyframes animSelect {
+    0% {border-bottom: 0px solid black;}
+    100% {border-bottom: 3px solid black;}
  }
  

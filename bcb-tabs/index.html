@@ -11,12 +11,38 @@
 
     <div class="tabs">
         <div class="tabs-sidebar">
-            <button class="tabs-button" data-for-tab="1">Tab #1</button>
+            <button class="tabs-button tabs-button--active" data-for-tab="1">Tab #1</button>
             <button class="tabs-button" data-for-tab="2">Tab #2</button>
             <button class="tabs-button" data-for-tab="3">Tab #3</button>
         </div>
-        <div class="tabs-content" data-tab="1">
+        <div class="tabs-content tabs-content--active" data-tab="1">
             <h2>Tab #1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore 
+                magna aliqua. Ut enim ad minim veniam, quis 
+                nostrud exercitation ullamco laboris nisi ut 
+                aliquip ex ea commodo consequat. Duis aute irure 
+                dolor in reprehenderit in voluptate velit esse 
+                cillum dolore eu fugiat nulla pariatur. Excepteur 
+                sint occaecat cupidatat non proident, sunt in culpa 
+        </div>
+        <div class="tabs-content" data-tab="2">
+            <h2>Tab #2</h2>
+            <p>Dui faucibus in ornare quam viverra. Fermentum odio eu 
+                feugiat pretium nibh ipsum consequat. Lorem ipsum dolor
+                 sit amet consectetur adipiscing. Et netus et malesuada 
+                 fames. Sodales ut etiam sit amet nisl purus. Sit amet 
+                 nisl suscipit adipiscing bibendum est ultricies integer
+                  quis. Massa tempor nec feugiat nisl. Pulvinar 
+                  pellentesque habitant morbi tristique. Sit amet 
+                  mauris commodo quis imperdiet massa. Pellentesque
+                   nec nam aliquam sem et tortor. Commodo sed egestas 
+                   egestas fringilla phasellus faucibus scelerisque 
+                   eleifend. Mattis vulputate enim nulla aliquet. 
+                   Gravida arcu ac tortor dignissim.</p>
+        </div>
+        <div class="tabs-content" data-tab="3">
+            <h2>Tab #3</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                 sed do eiusmod tempor incididunt ut labore et dolore 
                 magna aliqua. Ut enim ad minim veniam, quis 
@@ -30,6 +56,32 @@
     </div>
 
     <script>
+            function setupTabs () {
+                document.querySelectorAll(".tabs-button").forEach(button => {
+                    button.addEventListener("click", () => {
+                        const sideBar = button.parentElement;
+                        const tabsContainer = sideBar.parentElement;
+                        const tabNumber = button.dataset.forTab;
+                        const tabToActivate = tabsContainer.querySelector(`.tabs-content[data-tab="${tabNumber}"]`);
+                        
+                        console.log(tabToActivate);
+                        console.log(tabNumber);
+                        sideBar.querySelectorAll(".tabs-button").forEach(button => {
+                            button.classList.remove("tabs-button--active");
+                        });
 
+                        tabsContainer.querySelectorAll(".tabs-content").forEach(tab => {
+                            tab.classList.remove("tabs-content--active");
+                        });
+
+                        button.classList.add("tabs-button--active");
+                        tabToActivate.classList.add("tabs-content--active");
+                    });
+                });
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                setupTabs();
+            });
     </script>
 </body>
