@@ -1,0 +1,80 @@
+h1 {
+    font-family: Holtzman;
+    font-size: 42pt;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: Holtzman;
+    font-size: 30pt;
+    text-transform: uppercase;
+}
+
+body {
+    font-family: din-2014, verdana, sans-serif;
+    font-size: 12pt;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-style: normal;
+}
+
+button {
+    font-family: din-condensed,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background: none;
+    font-size: 18pt;
+    color: black;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-bottom: 42px;
+    border: none;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+button:hover {
+    color: gray;
+}
+
+.tabs {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 75vw;
+}
+
+.headtext {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    justify-content: center;
+}
+
+.tabs-content {
+    display: flexbox;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: gainsboro;
+    padding-left: 24px;
+    padding-right: 24px;
+    animation: fadeIn 1.5s;
+}
+
+.tabs-sidebar {
+    display: flexbox;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
+ 
